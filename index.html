@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NVL-JS-P13b</title>
+</head>
+<body>
+	<script>
+		
+		var string1 = '¿Seré capaz de superarlo?';
+		var string2 = 'Voy a superarlo si o si';
+		var string3 = 'Me dije a mi mismo:lo haré';
+		var string4 = 'Esto no va ser fácil';
+		
+		es_palindromo(string1);
+		es_palindromo(string2);
+		es_palindromo(string3);
+		es_palindromo(string4);
+		//Declaramos la función que comprobará si es palíndromo o no
+		function es_palindromo(pal){
+			
+			//Quitamos los espacios, signos ,etc para comprobar  las letras y lo almacenamos en otra variable para tener el string original intacto
+			var pal_sin = pal.replace(/ /g,'');
+			pal_sin = pal_sin.replace(/\./g,'');
+			pal_sin = pal_sin.replace(/:/g,'');
+			pal_sin = pal_sin.replace(/,/g,'');
+			pal_sin = pal_sin.replace(/;/g,'');
+			pal_sin = pal_sin.replace(/-/g,'');
+			pal_sin = pal_sin.replace(/_/g,'');
+			pal_sin = pal_sin.replace(/\?/g,'');
+			pal_sin = pal_sin.replace(/¿/g,'');
+			pal_sin = pal_sin.replace(/¡/g,'');
+			pal_sin = pal_sin.replace(/!/g,'');
+			pal_sin = pal_sin.replace(/á/gi,'a');
+			pal_sin = pal_sin.replace(/é/gi,'e');
+			pal_sin = pal_sin.replace(/í/gi,'i');
+			pal_sin = pal_sin.replace(/ó/gi,'o');
+			pal_sin = pal_sin.replace(/ú/gi,'u');
+			pal_sin = pal_sin.replace(/à/gi,'a');
+			pal_sin = pal_sin.replace(/è/gi,'e');
+			pal_sin = pal_sin.replace(/ì/gi,'i');
+			pal_sin = pal_sin.replace(/ò/gi,'o');
+			pal_sin = pal_sin.replace(/ú/gi,'u');
+			pal_sin = pal_sin.replace(/ä/gi,'a');
+			pal_sin = pal_sin.replace(/ë/gi,'e');
+			pal_sin = pal_sin.replace(/ï/gi,'i');
+			pal_sin = pal_sin.replace(/ö/gi,'o');
+			pal_sin = pal_sin.replace(/ü/gi,'u');
+			// variable que almacenará el resultado
+			var resultado = true;
+			//Recorremos la cadena string para comprobar los valores
+			for (i=0;i<pal_sin.length;i++){
+				//Comprobamos las letras en las posiciones simetricas, es decir la primera con la última, la segunda con la penúltima, etc.
+				//Para ello convertimos las dos letras en minúsculas
+				if (pal_sin[i].toLowerCase()!==pal_sin[pal_sin.length-i-1].toLowerCase()){
+					//Si dos letras no coinciden, almacenamos el resultado en la variable y salimos del bucle
+					resultado = false;
+					break;
+				}
+			}
+		
+				document.write('<p>La palabra/frase \"' + pal);
+		if (resultado==true){
+			document.write('\" ES palindromo.</p>');
+		}else{
+			document.write(' NO ES palindromo.</p>')
+		}
+	}
+</script>
+</body>
+</html>
